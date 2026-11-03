@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M S Vasundra | Computer Science &amp; Design Student</title>
+<meta name="description" content="Portfolio of M S Vasundra, Computer Science and Design student at SRM Easwari Engineering College, Chennai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;--bg2:#101010;--card:#181818;--elev:#202020;
+  --text:#F5F5F5;--text2:#A3A3A3;--muted:#737373;--border:#303030;
+  --accent:#D0D0D0;--hover:#FFFFFF;
+  --font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--hover);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;border-top:1px solid var(--border)}
+section.alt{background:var(--bg2)}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+.lead{color:var(--text2);max-width:620px;margin-bottom:44px}
+h3{font-size:1.05rem;font-weight:600}
+.small{font-size:.86rem;color:var(--text2)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;letter-spacing:-.02em}
+.links{display:flex;gap:4px;list-style:none}
+.links a{display:block;padding:8px 12px;font-size:.88rem;color:var(--text2);border-radius:6px;position:relative;transition:color .2s}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:1px;background:var(--hover);transform:scaleX(0);transition:transform .25s}
+.links a:hover,.links a.active{color:var(--hover)}
+.links a:hover::after,.links a.active::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--border);border-radius:8px;width:42px;height:42px;cursor:pointer;color:var(--text);align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;transition:transform .25s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* HERO */
+#home{position:relative;min-height:calc(100vh - 64px);display:flex;align-items:center;overflow:hidden;border-top:0;padding:80px 0}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:.28;-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 0,transparent 70%);mask-image:radial-gradient(ellipse at 70% 40%,#000 0,transparent 70%)}
+.rings{position:absolute;right:-140px;top:50%;width:620px;height:620px;transform:translateY(-50%);pointer-events:none}
+.rings i{position:absolute;border:1px solid var(--border);border-radius:50%;inset:0;animation:spin 80s linear infinite}
+.rings i:nth-child(2){inset:70px;animation-duration:60s;animation-direction:reverse;border-style:dashed}
+.rings i:nth-child(3){inset:150px;animation-duration:100s}
+.rings i:nth-child(3)::after{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero{position:relative;max-width:760px}
+.hello{color:var(--text2);font-size:1.05rem;margin-bottom:14px}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;margin-bottom:22px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.role{font-size:clamp(1.05rem,2.4vw,1.4rem);font-weight:500;color:var(--accent);margin-bottom:10px}
+.tag{color:var(--muted);font-style:italic;margin-bottom:26px}
+.intro{color:var(--text2);max-width:600px;margin-bottom:36px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;padding:12px 22px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text);font:600 .92rem var(--font);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{border-color:var(--hover);transform:translateY(-2px)}
+.btn.primary{background:var(--text);color:#080808;border-color:var(--text)}
+.btn.primary:hover{background:var(--hover)}
+.btn.sm{padding:8px 14px;font-size:.82rem}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start}
+.about p{color:var(--text2);margin-bottom:16px}
+.pillars{display:grid;gap:12px}
+.pillar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.pillar b{display:block;font-weight:600;margin-bottom:2px}
+.pillar span{color:var(--text2);font-size:.88rem}
+
+/* CARDS */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.card:hover{border-color:#4a4a4a;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.gpa{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;margin:8px 0 2px}
+.gpa small{font-size:1rem;color:var(--muted);font-weight:500}
+.edu-head{background:var(--elev);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:20px}
+.edu-head p{color:var(--text2)}
+
+/* SKILLS */
+.skill-group{padding:22px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:220px 1fr;gap:20px}
+.skill-group:last-child{border-bottom:1px solid var(--border)}
+.skill-group h3{color:var(--text2);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:.86rem;color:var(--text);transition:border-color .2s,color .2s}
+.chip:hover{border-color:var(--hover)}
+
+/* PROJECTS */
+.proj{padding:0;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;width:100%}
+.proj:hover{transform:translateY(-3px)}
+.thumb{height:170px;border-bottom:1px solid var(--border);background:var(--elev);position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.05) brightness(.8);transition:filter .3s}
+.proj:hover .thumb img{filter:grayscale(.4) brightness(.95)}
+.ph{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.6}
+.ph::after{content:"";position:absolute;left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);border:1px solid var(--accent);border-radius:50%;box-shadow:0 0 0 18px var(--elev),0 0 0 19px var(--border)}
+.ph.sq::after{border-radius:8px;transform:translate(-50%,-50%) rotate(45deg)}
+.proj-body{padding:22px 24px 24px}
+.proj-body h3{margin-bottom:8px;letter-spacing:.01em}
+.proj-body p{color:var(--text2);font-size:.9rem;margin-bottom:16px}
+.status{display:inline-block;font-size:.76rem;font-weight:600;border:1px solid var(--border);border-radius:999px;padding:3px 12px;color:var(--accent);background:var(--bg2)}
+
+/* CERTS */
+.cat{margin-bottom:44px}
+.cat h3{font-size:1.1rem;margin-bottom:4px}
+.cat>.small{margin-bottom:18px}
+.cert{display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:22px}
+.cert h4{font-size:.98rem;font-weight:600;line-height:1.4;margin-bottom:6px}
+.cert .small+.small{margin-top:2px;color:var(--muted)}
+.cert-actions{display:flex;gap:8px;flex-wrap:wrap}
+.note{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:14px 18px;font-size:.86rem;color:var(--text2);margin-bottom:36px}
+
+/* EVENTS */
+.timeline{position:relative;margin-left:8px;padding-left:34px;border-left:1px solid var(--border)}
+.ev{position:relative;padding-bottom:28px}
+.ev:last-child{padding-bottom:0}
+.ev::before{content:"";position:absolute;left:-39px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1.5px solid var(--accent)}
+.ev .card{padding:20px 24px}
+.ev h3{margin-bottom:2px}
+.ev .role-line{color:var(--accent);font-size:.9rem;font-weight:500}
+.ev .small{margin-top:2px}
+
+/* CODING */
+.code-box{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.code-box ul{list-style:none;display:grid;gap:10px;color:var(--text2)}
+.code-box li::before{content:"";display:inline-block;width:14px;height:1px;background:var(--accent);vertical-align:middle;margin-right:12px}
+
+/* RESUME + CONTACT */
+.resume-box{display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:44px}
+.c-list{list-style:none;display:grid;gap:18px}
+.c-list span{display:block;font-size:.8rem;color:var(--muted)}
+.c-list a{border-bottom:1px solid var(--border);transition:border-color .2s}
+.c-list a:hover{border-color:var(--hover)}
+form{display:grid;gap:14px}
+label{font-size:.84rem;color:var(--text2);display:grid;gap:6px}
+input,textarea{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font:inherit;width:100%;transition:border-color .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:130px;resize:vertical}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:.84rem}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.m-box{background:var(--card);border:1px solid var(--border);border-radius:16px;width:100%;max-width:880px;max-height:92vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.7);animation:rise .3s ease both}
+.m-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card);z-index:1}
+.m-head h3{font-size:1rem}
+.x{background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;width:36px;height:36px;font-size:1.2rem;cursor:pointer}
+.x:hover{border-color:var(--hover)}
+.m-body{padding:22px}
+.m-body iframe{width:100%;height:68vh;border:1px solid var(--border);border-radius:8px;background:#fff}
+.m-body img{width:100%;border-radius:8px;border:1px solid var(--border);margin-bottom:18px}
+.m-body p{color:var(--text2);margin-bottom:12px}
+.m-body ul{color:var(--text2);margin:0 0 14px 20px}
+
+@media(max-width:860px){
+  .burger{display:flex}
+  .links{position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);flex-direction:column;padding:10px 16px 16px;display:none}
+  .links.open{display:flex}
+  .links a{padding:12px}
+  .links a::after{display:none}
+  .g3,.g2{grid-template-columns:1fr}
+  .about,.contact{grid-template-columns:1fr;gap:32px}
+  .skill-group{grid-template-columns:1fr;gap:12px}
+  .rings{opacity:.5;right:-320px}
+  section{padding:72px 0}
+}
+@media(min-width:861px) and (max-width:1020px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#home" class="logo">M S Vasundra</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="links" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<!-- HERO -->
+<section id="home">
+  <div class="bg-grid"></div>
+  <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="hero">
+      <p class="hello">Hi, I'm</p>
+      <h1>M S Vasundra</h1>
+      <p class="role">Computer Science &amp; Design Student</p>
+      <p class="tag">Curious by nature. Driven by creativity. Inspired by technology.</p>
+      <p class="intro">I enjoy exploring technology, learning new concepts and building meaningful projects. I am passionate about continuous learning, creative problem-solving and turning ideas into practical solutions.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">Explore My Work</a>
+        <a class="btn" href="assets/resume.pdf" download="M_S_Vasundra_Resume.pdf">Download Resume</a>
+        <a class="btn" href="#contact">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I'm a Computer Science and Design student at SRM Easwari Engineering College, Chennai. I'm interested in technology, programming, software development, problem-solving and new ideas.</p>
+      <p>I learn best by building. So far that means small hands-on projects, hackathons and ideathons, and structured courses that fill the gaps in what I know.</p>
+      <p>I like working with others, and I try to bring a designer's eye to technical problems.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><b>Curiosity and continuous learning</b><span>Always picking up the next concept.</span></div>
+      <div class="pillar"><b>Exploring new technologies</b><span>From cloud and AI to hardware.</span></div>
+      <div class="pillar"><b>Practical project experience</b><span>Learning by making things.</span></div>
+      <div class="pillar"><b>Creativity and teamwork</b><span>Ideas that get better with other people.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p class="lead">Where I'm studying and how it's going so far.</p>
+    <div class="edu-head">
+      <h3>B.E. Computer Science and Design</h3>
+      <p>SRM Easwari Engineering College, Chennai &middot; 2025 &ndash; Present</p>
+    </div>
+    <div class="grid g2">
+      <div class="card"><span class="small">Semester 1</span><div class="gpa">8.63<small> / 10 GPA</small></div></div>
+      <div class="card"><span class="small">Semester 2</span><div class="gpa">9.30<small> / 10 GPA</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="wrap">
+    <h2>Technical skills</h2>
+    <p class="lead">The languages, tools and hardware I've worked with so far.</p>
+    <div id="skills-list"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">Each card shows where the project actually stands. Select one for details.</p>
+    <div class="grid g2" id="project-grid"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="alt">
+  <div class="wrap">
+    <h2>Certifications</h2>
+    <p class="lead">Certificates from AWS Training &amp; Certification and MongoDB. Select View Certificate to open the original PDF.</p>
+    <div class="note">The AWS entries are completion certificates for official practice exams. They are not the AWS certification exams themselves.</div>
+    <div id="cert-list"></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="wrap">
+    <h2>Hackathons &amp; events</h2>
+    <p class="lead">Competitions and events I've taken part in.</p>
+    <div class="timeline" id="event-list"></div>
+  </div>
+</section>
+
+<!-- CODING JOURNEY -->
+<section id="coding" class="alt">
+  <div class="wrap">
+    <h2>Coding journey</h2>
+    <p class="lead">Practice is how it sticks.</p>
+    <div class="card code-box">
+      <ul>
+        <li>Practising programming and problem-solving</li>
+        <li>Learning Data Structures and Algorithms</li>
+        <li>Exploring coding challenges on LeetCode</li>
+      </ul>
+      <div id="leetcode-slot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <h2>Resume</h2>
+    <div class="card resume-box">
+      <p class="small" style="max-width:420px">My latest resume as a PDF, covering education, skills and projects.</p>
+      <div class="btns">
+        <button class="btn primary" data-pdf="assets/resume.pdf" data-title="Resume | M S Vasundra">View Resume</button>
+        <a class="btn" href="assets/resume.pdf" download="M_S_Vasundra_Resume.pdf">Download Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead">Happy to talk about projects, learning or opportunities.</p>
+    <div class="contact">
+      <ul class="c-list">
+        <li><span>Email</span><a href="mailto:vasundrams@gmail.com">vasundrams@gmail.com</a></li>
+        <li><span>Phone</span><a href="tel:+918838100287">8838100287</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/vasundra-subramanian/" target="_blank" rel="noopener">linkedin.com/in/vasundra-subramanian</a></li>
+        <li><span>GitHub</span><a href="https://github.com/vasundrams-png" target="_blank" rel="noopener">github.com/vasundrams-png</a></li>
+      </ul>
+      <!-- No backend: this form opens your email app with the message filled in. -->
+      <form id="mail-form">
+        <label>Your name<input id="f-name" required autocomplete="name"></label>
+        <label>Your email<input id="f-email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea id="f-msg" required></textarea></label>
+        <button class="btn primary" type="submit" style="justify-self:start">Open in email app</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; <span id="yr"></span> M S Vasundra</div></footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="m-box">
+    <div class="m-head"><h3 id="m-title"></h3><button class="x" id="m-close" aria-label="Close">&times;</button></div>
+    <div class="m-body" id="m-body"></div>
+  </div>
+</div>
+
+<script>
+/* ================= CONFIG: edit here =================
+   LEETCODE_URL : paste your LeetCode profile link, e.g. "https://leetcode.com/u/yourname/"
+                  Leave empty until you have it. The button stays hidden.
+   File paths   : every file below lives in the assets/ folder. Rename a file there
+                  and update the matching path here. */
+const LEETCODE_URL = "";
+
+const SKILLS = [
+  ["Programming", ["Python","C","Java"]],
+  ["Web development", ["HTML","CSS","JavaScript"]],
+  ["Libraries and frameworks", ["NumPy","Pandas","Matplotlib","Seaborn","Scikit-learn","Streamlit","React","FastAPI"]],
+  ["Tools", ["Git","GitHub","VS Code","Eclipse","Google Colab"]],
+  ["Hardware exposure", ["Arduino UNO","Sensors","Relay Modules","LCD"]]
+];
+
+/* image: path inside assets/projects/ (leave "" for a CSS placeholder) */
+const PROJECTS = [
+  {title:"Smart Home Energy Optimizer", status:"In Development", shape:"sq",
+   image:"assets/projects/smart-home-energy-optimizer-preview.jpg",
+   short:"A Java OOP-based system designed to monitor appliance usage and optimise household energy consumption through hardware integration.",
+   tech:"Java, OOP, Arduino UNO, sensors, LCD",
+   points:["Java dashboard that shows sensor readings, appliance controls, electricity cost estimates and recommendations.","Connects to an Arduino-based setup for sensing and appliance control.","The screenshot shows the dashboard before an Arduino is connected, so the values are empty."],
+   caption:"Dashboard screenshot (Arduino not connected)."},
+  {title:"CloudPilot AI", status:"Prototype", shape:"",
+   image:"assets/projects/cloudpilot-ai-preview.png",
+   short:"A multi-agent cloud optimisation platform prototype focused on cost, performance, security and reliability.",
+   tech:"Cloud infrastructure, multi-agent design",
+   points:["Looks at cloud usage across four goals: cost, performance, security and reliability.","The landing page screenshot is an early interface concept. Any figures in it are sample content."],
+   caption:"Prototype landing page (sample content)."},
+  {title:"InfraPulse AI", status:"Hackathon Concept", shape:"",
+   image:"assets/projects/infrapulse-ai-concept.svg",
+   caption:"Concept diagram of the idea (not a working dashboard).",
+   short:"A predictive infrastructure monitoring solution explored for the Smart India Hackathon 2026 problem statement.",
+   tech:"Concept stage",
+   points:["Explored as an idea for early risk identification and progress monitoring of infrastructure projects.","Work is ongoing, so there is no dashboard to show yet."]},
+  {title:"Non-Invasive Blood Group Recognition", status:"Ideation Stage", shape:"sq",
+   image:"assets/projects/blood-group-concept.svg",
+   caption:"Concept diagram of the idea (not tested or clinically validated).",
+   short:"An ideation-stage concept exploring fingerprint biometrics for blood group recognition.",
+   tech:"Concept stage",
+   points:["Still an idea being explored. It has not been built, tested or clinically validated."]}
+];
+
+/* pdf: path inside assets/certs/ . date is exactly as printed on the certificate. */
+const CERTS = [
+  {cat:"AWS Training & Certification", note:"Official practice exam completion certificates", items:[
+    {t:"Official Practice Exam: AWS Certified Cloud Practitioner (CLF-C02 - English)", org:"AWS Training & Certification", d:"August 25, 2026", pdf:"assets/certs/aws/cloud-practitioner-clf-c02.pdf"},
+    {t:"Official Practice Exam: AWS Certified AI Practitioner (AIF-C01 - English)", org:"AWS Training & Certification", d:"September 03, 2026", pdf:"assets/certs/aws/ai-practitioner-aif-c01.pdf"},
+    {t:"Official Practice Exam: AWS Certified Developer - Associate (DVA-C02 - English)", org:"AWS Training & Certification", d:"September 03, 2026", pdf:"assets/certs/aws/developer-associate-dva-c02.pdf"},
+    {t:"Official Practice Exam: AWS Certified Solutions Architect - Associate (SAA-C03 - English)", org:"AWS Training & Certification", d:"September 03, 2026", pdf:"assets/certs/aws/solutions-architect-associate-saa-c03.pdf"}]},
+  {cat:"MongoDB", note:"MongoDB Skill badges issued through Credly", items:[
+    {t:"MongoDB Basics for Students", org:"MongoDB", d:"Jul 11, 2026", pdf:"assets/certs/mongodb/mongodb-basics-for-students.pdf"},
+    {t:"Building RAG Apps Using MongoDB", org:"MongoDB", d:"Jul 16, 2026", pdf:"assets/certs/mongodb/building-rag-apps.pdf"},
+    {t:"Building AI Agents with MongoDB", org:"MongoDB", d:"Jul 16, 2026", pdf:"assets/certs/mongodb/building-ai-agents.pdf"},
+    {t:"AI and Innovation: How MongoDB Enables a Resilient AI Strategy", org:"MongoDB", d:"16 Jul 2026", pdf:"assets/certs/mongodb/ai-data-strategy.pdf"},
+    {t:"Building AI-Powered Search with MongoDB Vector Search", org:"MongoDB", d:"Jul 16, 2026", pdf:"assets/certs/mongodb/vector-search-fundamentals.pdf"}]}
+];
+
+const EVENTS = [
+  {n:"Adobe University Hackathon 2026", r:"Participant"},
+  {n:"Startup Ideathon 3.0", r:"Participant, TEAM ELEVEN", o:"Coimbatore Institute of Technology"},
+  {n:"Bharatiya Antariksh Hackathon 2026", r:"Successful Idea Submission", o:"ISRO"},
+  {n:"Intellect Hack 2026", r:"Online Preliminary Round Participant"},
+  {n:"PITCHATHON 2026", r:"Participant", o:"SRM Easwari Engineering College"}
+];
+/* ================= end config ================= */
+
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Render sections */
+$("#skills-list").innerHTML = SKILLS.map(([g,l])=>`<div class="skill-group"><h3>${g}</h3><div class="chips">${l.map(x=>`<span class="chip">${x}</span>`).join("")}</div></div>`).join("");
+
+$("#project-grid").innerHTML = PROJECTS.map((p,i)=>`
+  <button class="card proj" data-proj="${i}" aria-label="Open details for ${esc(p.title)}">
+    <div class="thumb">${p.image?`<img src="${p.image}" alt="" loading="lazy">`:`<div class="ph ${p.shape}"></div>`}</div>
+    <div class="proj-body"><h3>${esc(p.title)}</h3><p>${esc(p.short)}</p><span class="status">${esc(p.status)}</span></div>
+  </button>`).join("");
+
+$("#cert-list").innerHTML = CERTS.map(c=>`
+  <div class="cat"><h3>${esc(c.cat)}</h3><p class="small">${esc(c.note)}</p>
+  <div class="grid g3">${c.items.map(x=>`
+    <div class="card cert"><div><h4>${esc(x.t)}</h4><p class="small">${esc(x.org)}</p><p class="small">Completed ${esc(x.d)}</p></div>
+    <div class="cert-actions"><button class="btn sm primary" data-pdf="${x.pdf}" data-title="${esc(x.t)}">View Certificate</button><a class="btn sm" href="${x.pdf}" target="_blank" rel="noopener">Open PDF</a></div></div>`).join("")}</div></div>`).join("");
+
+$("#event-list").innerHTML = EVENTS.map(e=>`<div class="ev"><div class="card"><h3>${esc(e.n)}</h3><p class="role-line">${esc(e.r)}</p>${e.o?`<p class="small">${esc(e.o)}</p>`:""}</div></div>`).join("");
+
+$("#leetcode-slot").innerHTML = LEETCODE_URL ? `<a class="btn" href="${esc(LEETCODE_URL)}" target="_blank" rel="noopener">View LeetCode profile</a>` : "";
+$("#yr").textContent = new Date().getFullYear();
+
+/* Modal */
+const modal = $("#modal"); let lastFocus = null;
+function openModal(title, html){ lastFocus=document.activeElement; $("#m-title").textContent=title; $("#m-body").innerHTML=html; modal.classList.add("open"); document.body.style.overflow="hidden"; $("#m-close").focus(); }
+function closeModal(){ modal.classList.remove("open"); $("#m-body").innerHTML=""; document.body.style.overflow=""; if(lastFocus) lastFocus.focus(); }
+$("#m-close").onclick = closeModal;
+modal.addEventListener("click",e=>{ if(e.target===modal) closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&modal.classList.contains("open")) closeModal(); });
+
+document.addEventListener("click",e=>{
+  const pdfBtn = e.target.closest("[data-pdf]");
+  if(pdfBtn){
+    const f = pdfBtn.dataset.pdf;
+    openModal(pdfBtn.dataset.title, `<iframe src="${f}" title="${esc(pdfBtn.dataset.title)}"></iframe><p class="small" style="margin-top:12px">If the preview doesn't load on your device, <a href="${f}" target="_blank" rel="noopener" style="text-decoration:underline">open the PDF directly</a>.</p>`);
+    return;
+  }
+  const pj = e.target.closest("[data-proj]");
+  if(pj){
+    const p = PROJECTS[pj.dataset.proj];
+    openModal(p.title, `${p.image?`<img src="${p.image}" alt="${esc(p.title)} preview"><p class="small">${esc(p.caption||"")}</p>`:""}
+      <p><span class="status">${esc(p.status)}</span></p><p>${esc(p.short)}</p>
+      <ul>${p.points.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="small">Tech: ${esc(p.tech)}</p>`);
+  }
+});
+
+/* Mobile menu */
+const burger = $("#burger"), menu = $("#menu");
+burger.onclick = ()=>{ const o = menu.classList.toggle("open"); burger.setAttribute("aria-expanded",o); };
+menu.addEventListener("click",e=>{ if(e.target.closest("a")){ menu.classList.remove("open"); burger.setAttribute("aria-expanded","false"); } });
+
+/* Active nav link */
+const navLinks = [...menu.querySelectorAll("a")];
+const targets = navLinks.map(a=>$(a.getAttribute("href")));
+const io = new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+en.target.id)); } }); },{rootMargin:"-45% 0px -50% 0px"});
+targets.forEach(t=>t&&io.observe(t));
+
+/* Contact form: mailto only */
+$("#mail-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const n=$("#f-name").value.trim(), em=$("#f-email").value.trim(), m=$("#f-msg").value.trim();
+  location.href = "mailto:vasundrams@gmail.com?subject="+encodeURIComponent("Portfolio message from "+n)+"&body="+encodeURIComponent(m+"\n\nFrom: "+n+" ("+em+")");
+});
+</script>
+</body>
+</html>
