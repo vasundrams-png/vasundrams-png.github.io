@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 390" font-family="Manrope,Inter,Arial,sans-serif">
+<rect width="720" height="390" fill="#181818"/>
+<g stroke="#303030" stroke-width="1"><path d="M0 65H720M0 130H720M0 195H720M0 260H720M0 325H720"/><path d="M90 0V390M180 0V390M270 0V390M360 0V390M450 0V390M540 0V390M630 0V390"/></g>
+<g fill="none" stroke="#D0D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<!-- project nodes -->
+<rect x="48" y="96" width="92" height="64" rx="8" fill="#202020"/><path d="M62 146V122l16-10 16 10v24M110 146v-30h18v30"/>
+<rect x="48" y="196" width="92" height="64" rx="8" fill="#202020"/><path d="M60 236h68M70 236v-14M94 236v-14M118 236v-14M60 222c20-18 48-18 68 0"/>
+<rect x="48" y="296" width="92" height="44" rx="8" fill="#202020"/><path d="M62 318h64M62 310v16M126 310v16"/>
+<!-- flows -->
+<path d="M140 128C190 128 190 195 240 195M140 228C190 228 190 195 240 195M140 318C190 318 190 195 240 195" stroke="#737373" stroke-dasharray="4 5"/>
+<!-- pulse engine -->
+<rect x="240" y="150" width="190" height="90" rx="12" fill="#202020"/>
+<path d="M258 195h32l12-26 20 52 16-38 10 12h66" stroke="#F5F5F5" stroke-width="2"/>
+<!-- output -->
+<path d="M430 195H490" stroke="#737373"/><path d="M482 189l8 6-8 6" stroke="#737373"/>
+<rect x="500" y="130" width="172" height="130" rx="12" fill="#202020"/>
+<path d="M538 222a48 48 0 0 1 96 0" stroke="#737373" stroke-width="5"/><path d="M538 222a48 48 0 0 1 60-46" stroke="#F5F5F5" stroke-width="5"/><circle cx="586" cy="222" r="5" fill="#F5F5F5" stroke="none"/><path d="M586 222l24-28" stroke="#F5F5F5"/>
+</g>
+<g fill="#A3A3A3" font-size="13" text-anchor="middle"><text x="94" y="92">Project data</text><text x="335" y="270">Pattern detection</text><text x="586" y="284">Early risk flag</text></g>
+<text x="24" y="368" fill="#737373" font-size="12">Concept diagram, not a working dashboard</text>
+</svg>
